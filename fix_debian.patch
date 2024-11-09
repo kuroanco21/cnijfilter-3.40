@@ -1,12 +1,100 @@
+diff -uprN a/debian/cnijfilter-ip4800series.postinst b/debian/cnijfilter-ip4800series.postinst
+--- a/debian/cnijfilter-ip4800series.postinst	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/cnijfilter-ip4800series.postinst	2024-11-10 04:43:47.514509140 +0900
+@@ -14,6 +14,6 @@ if [ -x /sbin/ldconfig ]; then
+ fi
+ # make symbolic link for ppd
+ if [ ! -d ${_cups_path2} ]; then
+-	mkdir ${_cups_path2}
++	mkdir -p ${_cups_path2}
+ fi
+ ln -fs ${_cups_path1}/${ppd_name} ${_cups_path2}/${ppd_name}
+diff -uprN a/debian/cnijfilter-mg5100series.postinst b/debian/cnijfilter-mg5100series.postinst
+--- a/debian/cnijfilter-mg5100series.postinst	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/cnijfilter-mg5100series.postinst	2024-11-10 04:43:40.334472210 +0900
+@@ -14,6 +14,6 @@ if [ -x /sbin/ldconfig ]; then
+ fi
+ # make symbolic link for ppd
+ if [ ! -d ${_cups_path2} ]; then
+-	mkdir ${_cups_path2}
++	mkdir -p ${_cups_path2}
+ fi
+ ln -fs ${_cups_path1}/${ppd_name} ${_cups_path2}/${ppd_name}
+diff -uprN a/debian/cnijfilter-mg5200series.postinst b/debian/cnijfilter-mg5200series.postinst
+--- a/debian/cnijfilter-mg5200series.postinst	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/cnijfilter-mg5200series.postinst	2024-11-10 04:43:30.906421955 +0900
+@@ -14,6 +14,6 @@ if [ -x /sbin/ldconfig ]; then
+ fi
+ # make symbolic link for ppd
+ if [ ! -d ${_cups_path2} ]; then
+-	mkdir ${_cups_path2}
++	mkdir -p ${_cups_path2}
+ fi
+ ln -fs ${_cups_path1}/${ppd_name} ${_cups_path2}/${ppd_name}
+diff -uprN a/debian/cnijfilter-mg6100series.postinst b/debian/cnijfilter-mg6100series.postinst
+--- a/debian/cnijfilter-mg6100series.postinst	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/cnijfilter-mg6100series.postinst	2024-11-10 04:43:22.042372862 +0900
+@@ -14,6 +14,6 @@ if [ -x /sbin/ldconfig ]; then
+ fi
+ # make symbolic link for ppd
+ if [ ! -d ${_cups_path2} ]; then
+-	mkdir ${_cups_path2}
++	mkdir -p ${_cups_path2}
+ fi
+ ln -fs ${_cups_path1}/${ppd_name} ${_cups_path2}/${ppd_name}
+diff -uprN a/debian/cnijfilter-mg8100series.postinst b/debian/cnijfilter-mg8100series.postinst
+--- a/debian/cnijfilter-mg8100series.postinst	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/cnijfilter-mg8100series.postinst	2024-11-10 04:43:15.650336322 +0900
+@@ -14,6 +14,6 @@ if [ -x /sbin/ldconfig ]; then
+ fi
+ # make symbolic link for ppd
+ if [ ! -d ${_cups_path2} ]; then
+-	mkdir ${_cups_path2}
++	mkdir -p ${_cups_path2}
+ fi
+ ln -fs ${_cups_path1}/${ppd_name} ${_cups_path2}/${ppd_name}
+diff -uprN a/debian/cnijfilter-mp250series.postinst b/debian/cnijfilter-mp250series.postinst
+--- a/debian/cnijfilter-mp250series.postinst	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/cnijfilter-mp250series.postinst	2024-11-10 04:43:10.026303393 +0900
+@@ -14,6 +14,6 @@ if [ -x /sbin/ldconfig ]; then
+ fi
+ # make symbolic link for ppd
+ if [ ! -d ${_cups_path2} ]; then
+-	mkdir ${_cups_path2}
++	mkdir -p ${_cups_path2}
+ fi
+ ln -fs ${_cups_path1}/${ppd_name} ${_cups_path2}/${ppd_name}
+diff -uprN a/debian/cnijfilter-mp280series.postinst b/debian/cnijfilter-mp280series.postinst
+--- a/debian/cnijfilter-mp280series.postinst	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/cnijfilter-mp280series.postinst	2024-11-10 04:43:04.150268177 +0900
+@@ -14,6 +14,6 @@ if [ -x /sbin/ldconfig ]; then
+ fi
+ # make symbolic link for ppd
+ if [ ! -d ${_cups_path2} ]; then
+-	mkdir ${_cups_path2}
++	mkdir -p ${_cups_path2}
+ fi
+ ln -fs ${_cups_path1}/${ppd_name} ${_cups_path2}/${ppd_name}
+diff -uprN a/debian/cnijfilter-mp495series.postinst b/debian/cnijfilter-mp495series.postinst
+--- a/debian/cnijfilter-mp495series.postinst	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/cnijfilter-mp495series.postinst	2024-11-10 04:42:55.462214586 +0900
+@@ -14,6 +14,6 @@ if [ -x /sbin/ldconfig ]; then
+ fi
+ # make symbolic link for ppd
+ if [ ! -d ${_cups_path2} ]; then
+-	mkdir ${_cups_path2}
++	mkdir -p ${_cups_path2}
+ fi
+ ln -fs ${_cups_path1}/${ppd_name} ${_cups_path2}/${ppd_name}
 diff -uprN a/debian/compat b/debian/compat
---- a/debian/compat	2024-11-09 23:53:05.613487168 +0900
-+++ b/debian/compat	2024-11-10 00:17:23.549478628 +0900
+--- a/debian/compat	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/compat	2024-11-10 04:41:36.769641220 +0900
 @@ -1 +1 @@
 -4
 +7
 diff -uprN a/debian/control b/debian/control
---- a/debian/control	2024-11-09 23:53:05.613487168 +0900
-+++ b/debian/control	2024-11-10 01:33:55.826512020 +0900
+--- a/debian/control	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/control	2024-11-10 04:41:36.769641220 +0900
 @@ -2,7 +2,7 @@ Source: cnijfilter-common
  Section: graphics
  Priority: optional
@@ -17,8 +105,8 @@ diff -uprN a/debian/control b/debian/control
  
  Package: cnijfilter-common
 diff -uprN a/debian/rules b/debian/rules
---- a/debian/rules	2024-11-09 23:53:05.613487168 +0900
-+++ b/debian/rules	2024-11-10 01:36:43.012344512 +0900
+--- a/debian/rules	2024-11-10 04:40:32.337041378 +0900
++++ b/debian/rules	2024-11-10 04:41:36.781641321 +0900
 @@ -8,6 +8,7 @@
  
  # Uncomment this to turn on verbose mode.
