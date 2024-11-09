@@ -1,0 +1,70 @@
+diff -uprN a/debian/compat b/debian/compat
+--- a/debian/compat	2024-11-09 23:53:05.613487168 +0900
++++ b/debian/compat	2024-11-10 00:17:23.549478628 +0900
+@@ -1 +1 @@
+-4
++7
+diff -uprN a/debian/control b/debian/control
+--- a/debian/control	2024-11-09 23:53:05.613487168 +0900
++++ b/debian/control	2024-11-10 01:33:55.826512020 +0900
+@@ -2,7 +2,7 @@ Source: cnijfilter-common
+ Section: graphics
+ Priority: optional
+ Maintainer: Canon Inc. <sup-debian@list.canon.co.jp>
+-Build-Depends: debhelper (>= 4.0.0), libcupsys2-dev, libxml2-dev, libtiff4-dev
++Build-Depends: debhelper (>= 4.0.0), libcups2-dev, libxml2-dev, libtiff-dev
+ Standards-Version: 3.7.2
+ 
+ Package: cnijfilter-common
+diff -uprN a/debian/rules b/debian/rules
+--- a/debian/rules	2024-11-09 23:53:05.613487168 +0900
++++ b/debian/rules	2024-11-10 01:36:43.012344512 +0900
+@@ -8,6 +8,7 @@
+ 
+ # Uncomment this to turn on verbose mode.
+ #export DH_VERBOSE=1
++export SHELL=/bin/bash
+ 
+ # define package name
+ COMMON_PKG=cnijfilter-common
+@@ -48,29 +49,29 @@ configure-stamp:
+ 
+ 	### configure common package
+ 	@echo "######## configure libs"; \
+-	cd ./libs; ./autogen.sh --prefix=/usr
++	cd ./libs; autoupdate; ./autogen.sh --prefix=/usr
+ 	@echo "######## configure cngpij"; \
+-	cd ./cngpij; ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin
++	cd ./cngpij; autoupdate; ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin
+ 	@echo "######## configure pstocanonij"; \
+-	cd ./pstocanonij; ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin
++	cd ./pstocanonij; autoupdate; ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin
+ 	@echo "######## configure backend"; \
+-	cd ./backend; ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin
++	cd ./backend; autoupdate; ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin
+ 	@echo "######## configure backendnet"; \
+-	cd ./backendnet; ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin LDFLAGS="-L../../com/libs_bin${_arc}"
++	cd ./backendnet; autoupdate; ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin LDFLAGS="-L../../com/libs_bin${_arc}"
+ 	@echo "######## configure sm sub process"; \
+-	cd ./cngpijmon/cnijnpr; ./autogen.sh --prefix=/usr
++	cd ./cngpijmon/cnijnpr; autoupdate; ./autogen.sh --prefix=/usr
+ 
+ 	#### configure printer package
+ 	echo "######## configure ppd file"; \
+-	cd ./ppd && ./autogen.sh --prefix=/usr --enable-ppdpath=/usr/share/ppd --program-suffix=CN_IJ_MODEL
++	cd ./ppd; autoupdate && ./autogen.sh --prefix=/usr --enable-ppdpath=/usr/share/ppd --program-suffix=CN_IJ_MODEL
+ 	echo "######## configure cnijfilter"; \
+-	cd ./cnijfilter && ./autogen.sh --prefix=/usr --enable-libpath=/usr/lib/bjlib --enable-binpath=/usr/bin --program-suffix=CN_IJ_MODEL
++	cd ./cnijfilter; autoupdate && ./autogen.sh --prefix=/usr --enable-libpath=/usr/lib/bjlib --enable-binpath=/usr/bin --program-suffix=CN_IJ_MODEL
+ 	echo "######## configure printui"; \
+-	cd ./printui && ./autogen.sh --prefix=/usr --program-suffix=CN_IJ_MODEL --datadir=/usr/share
++	cd ./printui; autoupdate && ./autogen.sh --prefix=/usr --program-suffix=CN_IJ_MODEL --datadir=/usr/share; make || true
+ 	echo "######## configure lgmon"; \
+-	cd ./lgmon && ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin --program-suffix=CN_IJ_MODEL
++	cd ./lgmon; autoupdate && ./autogen.sh --prefix=/usr --enable-progpath=/usr/bin --program-suffix=CN_IJ_MODEL
+ 	echo "######## configure cngpijmon"; \
+-	cd ./cngpijmon && ./autogen.sh --prefix=/usr --program-suffix=CN_IJ_MODEL --enable-progpath=/usr/bin --datadir=/usr/share
++	cd ./cngpijmon; autoupdate && ./autogen.sh --prefix=/usr --program-suffix=CN_IJ_MODEL --enable-progpath=/usr/bin --datadir=/usr/share
+ 
+ 
+ 	touch configure-stamp
