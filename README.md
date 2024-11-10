@@ -1,7 +1,7 @@
 # IJ Printer Driver Ver.3.40 for Ubuntu 24.04
 
 ## Supported Models
-- IP4800 series
+- iP4800 series
 - MG5100 series
 - MG5200 series
 - MG6100 series
